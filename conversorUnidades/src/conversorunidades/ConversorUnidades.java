@@ -88,7 +88,7 @@ public class ConversorUnidades {
                     longitud.pulgadasaMillas();
                     break;
                 case "5":
-                    /**/
+                    otrosLongitudes();
                 case "6":
                     break;
                 
@@ -107,50 +107,68 @@ public class ConversorUnidades {
 }
     
     public void otrosLongitudes() {
-        /*   
-                do{
-                    System.out.println("    Unidades: ");
-                    System.out.println("        - 1 Kilómetros a Millas");
-                    System.out.println("        - km (kilómetros)");
-                    System.out.println("        - hm (hectómetros)");
-                    System.out.println("        - dam (decámetros)");
-                    System.out.println("        - m (metros)");
-                    System.out.println("        - dm (decímetros)");
-                    System.out.println("        - cm (centímetros)");
-                    System.out.println("        - mm (dmilímetros)");
-                    /*Leemos la unidad 1
-                    opcionString=read.nextLine();
-                    /*Pasamos la opcion a minúsculas
-                    opcionString=opcionString.toLowerCase();
-                    /*Eliminamos los espacios en blanco de la opción
-                    opcionString=opcionString.replace(" ","");
-                    /*Si la opcion no es correcta repetimos
-                    if (opcionString.equals("1")) {
-                        opcion2=true;
-                        opcionString=""
-                    } else if (!opcionString.equals("km") || 
-                            opcionString.equals("hm") || 
-                            opcionString.equals("dam") || 
-                            opcionString.equals("m") || 
-                            opcionString.equals("dm") || 
-                            opcionString.equals("cm") || 
-                            opcionString.equals("mm")) {
-                        opcion2=false;
-                        System.out.println("La opción introducida es "
-                                + "incorrecta. Por favor, vuelva a introducir "
-                                + "una opción.");
-                    } else{
-                        opcion2=true;
-                    }
-                    /*En la primera vuelta del bucle obtenemos la unidad 1
-                    if (i==1) {
-                        unidad1=opcionString;
-                    }
-                    /*En la segunda vuelta del bucle obtenemos la unidad 2
-                    if (i==2) {
-                        unidad2=opcionString;
-                    }
-                } while(opcion2==false);
+        String opcionString;
+        String unidad1;
+        String unidad2;
+        boolean opcion;
+        /*Repetimos el prceso de escoger la unidad 2 veces puesto que tenemos 
+        2 unidades que escoger*/
+        for (int i = 0; i < 2; i++) {
+            /*Taxto inicial*/
+            System.out.println("Introduzca las unidades que quiera "
+                        + "utilizar: ");
+            if (i==1) {
+                System.out.println("Unidad 1:");
+            }
+            if (i==2) {
+                System.out.println("Unidad 2:");
+            }
+            
+            /*Escogemos las unidades*/
+            do{
+                System.out.println("    Unidades: ");
+                System.out.println("        - km (kilómetros)");
+                System.out.println("        - hm (hectómetros)");
+                System.out.println("        - dam (decámetros)");
+                System.out.println("        - m (metros)");
+                System.out.println("        - dm (decímetros)");
+                System.out.println("        - cm (centímetros)");
+                System.out.println("        - mm (dmilímetros)");
+
+                /*Leemos la unidad 1*/
+                opcionString=read.nextLine();
+                /*Pasamos la opcion a minúsculas*/
+                opcionString=opcionString.toLowerCase();
+                /*Eliminamos los espacios en blanco de la opción*/
+                opcionString=opcionString.replace(" ","");
+
+                /*Si la opcion no es correcta repetimos*/
+                if (!opcionString.equals("km") || 
+                        opcionString.equals("hm") || 
+                        opcionString.equals("dam") || 
+                        opcionString.equals("m") || 
+                        opcionString.equals("dm") || 
+                        opcionString.equals("cm") || 
+                        opcionString.equals("mm")) {
+                    opcion=false;
+                    System.out.println("La opción introducida es "
+                            + "incorrecta. Por favor, vuelva a introducir "
+                            + "una opción.");
+                } else{
+                    opcion=true;
+                }
+
+                /*En la primera vuelta del bucle obtenemos la unidad 1*/
+                if (i==1) {
+                    unidad1=opcionString;
+                }
+                /*En la segunda vuelta del bucle obtenemos la unidad 2*/
+                if (i==2) {
+                    unidad2=opcionString;
+                }
+            } while(opcion==false);
+        }
+        
                 /*Leemos la cantidad1*/
                 double cantidad1=read.nextDouble();
                 
