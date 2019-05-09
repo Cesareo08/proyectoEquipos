@@ -15,23 +15,23 @@ public class Longitudes {
 
     //MÉTODOS PARA LA CONVERSIÓN DE X A METROS
     public void kmam() {
-        this.cantidad1 = this.cantidad1 * 1000;
+        this.cantidad2 = this.cantidad1 * 1000;
     }
 
     public void hmam() {
-        this.cantidad1 = this.cantidad1 * 100;
+        this.cantidad2 = this.cantidad1 * 100;
     }
 
     public void damam() {
-        this.cantidad1 = this.cantidad1 * 10;
+        this.cantidad2 = this.cantidad1 * 10;
     }
 
     public void dmam() {
-        this.cantidad1 = this.cantidad1 / 10;
+        this.cantidad2 = this.cantidad1 / 10;
     }
 
     public void cmam() {
-        this.cantidad1 = this.cantidad1 / 100;
+        this.cantidad2 = this.cantidad1 / 100;
 
     }
 
@@ -66,15 +66,7 @@ public class Longitudes {
     }
 
     //SETTER AND GETTES
-    public String getUnidad1() {
-        return unidad1;
-    }
-
-    public String getUnidad2() {
-        return unidad2;
-    }
-
-    public double getCantidad1() {
+     public double getCantidad1() {
         return cantidad1;
     }
 
