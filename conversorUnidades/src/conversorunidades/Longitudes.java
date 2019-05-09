@@ -1,20 +1,95 @@
 package conversorunidades;
+
 public class Longitudes {
-    /*Pasamos de unidad1 a unidad2*/
+
     private String unidad1;
     private String unidad2;
-    /*Cantidad que recibimos*/
-    private double cantidad1;
-    /*Cantidad convertida*/
-    private double cantidad2;
+    private double cantidad1; /*Cantidad que recibimos*/
+    private double cantidad2; /*Cantidad convertida*/
 
     public Longitudes(String unidad1, String unidad2, double cantidad1) {
         this.unidad1 = unidad1;
         this.unidad2 = unidad2;
         this.cantidad1 = cantidad1;
     }
+
+    //MÉTODOS PARA LA CONVERSIÓN DE X A METROS
+    public void kmam() {
+        this.cantidad2 = this.cantidad1 * 1000;
+    }
+
+    public void hmam() {
+        this.cantidad2 = this.cantidad1 * 100;
+    }
+
+    public void damam() {
+        this.cantidad2 = this.cantidad1 * 10;
+    }
+
+    public void dmam() {
+        this.cantidad2 = this.cantidad1 / 10;
+    }
+
+    public void cmam() {
+        this.cantidad2 = this.cantidad1 / 100;
+
+    }
+
+    public void mmam() {
+        this.cantidad2 = this.cantidad1 / 1000;
+    }
+
+    //MÉTODOS PARA LA CONVERSIÓN DE METROS A X
+    public void makm() {
+        this.cantidad2 = this.cantidad1 / 1000;
+    }
+
+    public void mahm() {
+        this.cantidad2 = this.cantidad1 / 100;
+    }
+
+    public void madam() {
+        this.cantidad2 = this.cantidad1 / 10;
+    }
+
+    public void madm() {
+        this.cantidad2 = this.cantidad1 * 10;
+    }
+
+    public void macm() {
+        this.cantidad2 = this.cantidad1 * 100;
+
+    }
+
+    public void mamm() {
+        this.cantidad2 = this.cantidad1 * 1000;
+    }
+
+    //SETTER AND GETTES
+     public double getCantidad1() {
+        return cantidad1;
+    }
+
+    public double getCantidad2() {
+        return cantidad2;
+    }
+
+
     
-    /*Pasamos primero a metros y despues a la unidad que queremos*/
+            
+    
+   
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+  }
     
     
-}
+
