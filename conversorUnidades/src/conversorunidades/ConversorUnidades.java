@@ -91,15 +91,23 @@ public class ConversorUnidades {
                     /**/
                 case "6":
                     break;
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                /*   
+                
+                /*Mostrar la solución*/
+                System.out.println("El cambio de la unidad 1, "+unidad1+", a "
+                        + "la unidad2, "+unidad2+", de "+cantidad1+" es de "
+                        +longitud.getCantidad2());
+                System.out.println(cantidad1+" "+unidad1+" es igual a "
+                        +longitud.getCantidad2()+" "+unidad2);
+            }
+            
+            
+        }
+    }
+    
+}
+    
+    public void otrosLongitudes() {
+        /*   
                 do{
                     System.out.println("    Unidades: ");
                     System.out.println("        - 1 Kilómetros a Millas");
@@ -330,17 +338,4 @@ public class ConversorUnidades {
                     break;
                 }
                 */
-                
-                /*Mostrar la solución*/
-                System.out.println("El cambio de la unidad 1, "+unidad1+", a "
-                        + "la unidad2, "+unidad2+", de "+cantidad1+" es de "
-                        +longitud.getCantidad2());
-                System.out.println(cantidad1+" "+unidad1+" es igual a "
-                        +longitud.getCantidad2()+" "+unidad2);
-            }
-            
-            
-        }
     }
-    
-}
