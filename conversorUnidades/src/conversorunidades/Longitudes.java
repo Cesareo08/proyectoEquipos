@@ -80,7 +80,7 @@ public class Longitudes {
         this.cantidad2 = this.cantidad1/63360;
     }
 
-    //SETTER AND GETTES
+    //GETS()
     public double getCantidad1() {
         return cantidad1;
     }
