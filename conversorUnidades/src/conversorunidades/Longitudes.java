@@ -1,16 +1,13 @@
 package conversorunidades;
 
 public class Longitudes {
+    
+    private double cantidad1;//cantidad que recibimos
+    private double cantidad2;//cantidad convertida
 
-    private String unidad1;
-    private String unidad2;
-    private double cantidad1; /*Cantidad que recibimos*/
-    private double cantidad2; /*Cantidad convertida*/
 
-    public Longitudes(String unidad1, String unidad2, double cantidad1) {
-        this.unidad1 = unidad1;
-        this.unidad2 = unidad2;
-        this.cantidad1 = cantidad1;
+    public Longitudes(double cantidad) {
+            this.cantidad1 = cantidad;
     }
 
     //MÉTODOS PARA LA CONVERSIÓN DE X A METROS
@@ -65,8 +62,26 @@ public class Longitudes {
         this.cantidad2 = this.cantidad1 * 1000;
     }
 
+    //OPERACIONES QUE PIDE EL PROFESOR
+    public void kmaMillas() {
+        this.cantidad2 = this.cantidad1 * 0.621371;
+
+    }
+
+    public void millasaKm() {
+        this.cantidad2 = this.cantidad1 / 0.621371;
+    }
+
+    public void millasaPulgadas() {
+        this.cantidad2 = this.cantidad1*63360;
+    }
+
+    public void pulgadasaMillas() {
+        this.cantidad2 = this.cantidad1/63360;
+    }
+
     //SETTER AND GETTES
-     public double getCantidad1() {
+    public double getCantidad1() {
         return cantidad1;
     }
 
@@ -74,22 +89,4 @@ public class Longitudes {
         return cantidad2;
     }
 
-
-    
-            
-    
-   
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-  }
-    
-    
-
+}
