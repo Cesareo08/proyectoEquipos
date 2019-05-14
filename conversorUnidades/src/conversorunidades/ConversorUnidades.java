@@ -94,7 +94,7 @@ public class ConversorUnidades {
                     longitud.pulgadasaMillas();
                     break;
                 case "5":
-                    otrosLongitudes();
+                    otrosLongitudes(longitud);
                     break;
                 case "6":
                     break;
@@ -112,7 +112,7 @@ public class ConversorUnidades {
     
 }
     
-    public static void otrosLongitudes() {
+    public static void otrosLongitudes(Longitudes longitud) {
         String opcionString;
         String unidad1="m";
         String unidad2="m";
@@ -181,7 +181,6 @@ public class ConversorUnidades {
                 /*Ya tenemos las variables unidad1, unidad2 y cantidad1
                 Ahora averiguamos la variable cantidad2 llamando a la clase 
                 Longitudes*/
-                Longitudes longitud=new Longitudes(cantidad1);
                 switch (unidad1) {
                 case "1":
                     longitud.kmam();
