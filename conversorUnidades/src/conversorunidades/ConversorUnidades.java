@@ -63,6 +63,12 @@ public class ConversorUnidades {
                             + "incorrecta. Por favor, vuelva a introducir "
                             + "una opción.");
                 }
+                
+                /*Leer cantidad1*/
+                System.out.println("Introduzca la cantidad que quiere "
+                        + "transformar: ");
+                double cantidad1=read.nextDouble();
+                
                 Longitudes longitud=new Longitudes(cantidad1);
                 
                 /*Ejecutar primeras opciones*/
@@ -89,16 +95,16 @@ public class ConversorUnidades {
                     break;
                 case "5":
                     otrosLongitudes();
+                    break;
                 case "6":
                     break;
-                
-                /*Mostrar la solución*/
-                System.out.println("El cambio de la unidad 1, "+unidad1+", a "
-                        + "la unidad2, "+unidad2+", de "+cantidad1+" es de "
-                        +longitud.getCantidad2());
-                System.out.println(cantidad1+" "+unidad1+" es igual a "
-                        +longitud.getCantidad2()+" "+unidad2);
             }
+            /*Mostrar la solución*/
+            System.out.println("El cambio de la unidad 1, "+unidad1+", a "
+                +"la unidad2, "+unidad2+", de "+cantidad1+" es de "
+                +longitud.getCantidad2());
+            System.out.println(cantidad1+" "+unidad1+" = "
+                    +longitud.getCantidad2()+" "+unidad2);
             
             
         }
@@ -106,15 +112,15 @@ public class ConversorUnidades {
     
 }
     
-    public void otrosLongitudes() {
+    public static void otrosLongitudes() {
         String opcionString;
-        String unidad1;
-        String unidad2;
+        String unidad1="m";
+        String unidad2="m";
         boolean opcion;
         /*Repetimos el prceso de escoger la unidad 2 veces puesto que tenemos 
         2 unidades que escoger*/
         for (int i = 0; i < 2; i++) {
-            /*Taxto inicial*/
+            /*Texto inicial*/
             System.out.println("Introduzca las unidades que quiera "
                         + "utilizar: ");
             if (i==1) {
@@ -174,8 +180,8 @@ public class ConversorUnidades {
                 
                 /*Ya tenemos las variables unidad1, unidad2 y cantidad1
                 Ahora averiguamos la variable cantidad2 llamando a la clase 
-                Longitudes
-                Longitudes longitud=new Longitudes(unidad1,unidad2,cantidad1);
+                Longitudes*/
+                Longitudes longitud=new Longitudes(cantidad1);
                 switch (unidad1) {
                 case "1":
                     longitud.kmam();
@@ -355,5 +361,4 @@ public class ConversorUnidades {
                     }
                     break;
                 }
-                */
     }
