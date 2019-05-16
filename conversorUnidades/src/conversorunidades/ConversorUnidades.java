@@ -15,7 +15,7 @@ public class ConversorUnidades {
         System.out.println("Introduzca la opción que quiera utilazar: ");
         System.out.println("    1. Conversor Unidades Longitudinales");
         System.out.println("    2. Salir");
-        int opcion1=1;
+        int opcion1;
         do{
             opcion1=read.nextInt();
             if (opcion1<1 || opcion1>2) {
@@ -35,7 +35,7 @@ public class ConversorUnidades {
             a la unidad que queremos*/
             int opcion2=1;
             do{
-                System.out.println("Introduzca las unidades que quiera "
+                System.out.println("Introduzca la opción que quiera "
                         + "utilizar: ");
                 
                 /*Declarar variables*/
@@ -43,7 +43,7 @@ public class ConversorUnidades {
                 String unidad2="m";
                 
                 /*Mostrar primeras opciones*/
-                System.out.println("    Unidades: ");
+                System.out.println("    Opciones: ");
                 System.out.println("        - 1 Kilómetros a Millas");
                 System.out.println("        - 2 Millas a Kilómetros");
                 System.out.println("        - 3 Millas a Pulgadas");
@@ -92,19 +92,23 @@ public class ConversorUnidades {
                     longitud.pulgadasaMillas();
                     break;
                 case 5:
+                    System.out.println("Otros");
                     otrosLongitudes(longitud);
                     break;
                 case 6:
+                    System.out.println("Salir");
                     break;
                 }
                 
-                /*Mostrar la solución*/
-                System.out.println("El cambio de la unidad 1, "+unidad1+", a "
-                        +"la unidad2, "+unidad2+", de "+longitud.getCantidad1()
-                        +" es de "+longitud.getCantidad2());
-                System.out.println(longitud.getCantidad1()+" "+unidad1+" = "
-                        +longitud.getCantidad2()+" "+unidad2);
-            } while(opcion2==6);
+                if (opcion2!=6) {
+                    /*Mostrar la solución*/
+                    System.out.println("El cambio de la unidad 1, "+unidad1+", a "
+                            +"la unidad2, "+unidad2+", de "+longitud.getCantidad1()
+                            +" es de "+longitud.getCantidad2());
+                    System.out.println(longitud.getCantidad1()+" "+unidad1+" = "
+                            +longitud.getCantidad2()+" "+unidad2);
+                }
+            } while(opcion2!=6);
         }
     }
     
@@ -113,16 +117,17 @@ public class ConversorUnidades {
         String unidad1="m";
         String unidad2="m";
         boolean opcion;
+        /*Texto inicial*/
+        System.out.println("Introduzca las unidades que quiera "
+                + "utilizar: ");
         /*Repetimos el prceso de escoger la unidad 2 veces puesto que tenemos 
         2 unidades que escoger*/
+        read.nextLine();
         for (int i = 0; i < 2; i++) {
-            /*Texto inicial*/
-            System.out.println("Introduzca las unidades que quiera "
-                        + "utilizar: ");
-            if (i==1) {
+            if (i==0) {
                 System.out.println("Unidad 1:");
             }
-            if (i==2) {
+            if (i==1) {
                 System.out.println("Unidad 2:");
             }
             
@@ -153,20 +158,19 @@ public class ConversorUnidades {
                         opcionString.equals("cm") || 
                         opcionString.equals("mm")) {
                     opcion=false;
-                    System.out.println("La opción introducida es "
+                    System.out.println("La unidad introducida es "
                             + "incorrecta. Por favor, vuelva a introducir "
                             + "una opción.");
                 } else{
+                    /*En la primera vuelta del bucle obtenemos la unidad 1*/
+                    if (i==0) {
+                        unidad1=opcionString;
+                    }
+                    /*En la segunda vuelta del bucle obtenemos la unidad 2*/
+                    if (i==1) {
+                        unidad2=opcionString;
+                    }
                     opcion=true;
-                }
-
-                /*En la primera vuelta del bucle obtenemos la unidad 1*/
-                if (i==1) {
-                    unidad1=opcionString;
-                }
-                /*En la segunda vuelta del bucle obtenemos la unidad 2*/
-                if (i==2) {
-                    unidad2=opcionString;
                 }
             } while(opcion==false);
         }
@@ -179,9 +183,6 @@ public class ConversorUnidades {
         Ahora averiguamos la variable cantidad2 llamando a la clase 
         Longitudes*/
         switch (unidad1) {
-        case "1":
-            longitud.kmam();
-            break;
         case "km":
             longitud.kmam();
             switch (unidad2) {
