@@ -33,17 +33,12 @@ public class ConversorUnidades {
             
             /*Recorremos el bucle 2 veces para obtener la unidad que tenemos, 
             a la unidad que queremos*/
-            for (int i = 0; i < 2; i++) {
+            int opcion2=1;
+            do{
                 System.out.println("Introduzca las unidades que quiera "
                         + "utilizar: ");
-                if (i==1) {
-                    System.out.println("Unidad 1:");
-                }
-                if (i==2) {
-                    System.out.println("Unidad 2:");
-                }
+                
                 /*Declarar variables*/
-                String opcionString;
                 String unidad1="m";
                 String unidad2="m";
                 
@@ -57,60 +52,61 @@ public class ConversorUnidades {
                 System.out.println("        - 6 Salir");
                 
                 /*Leer primeras opciones*/
-                int opcion2=read.nextInt();
+                opcion2=read.nextInt();
                 while(opcion2<1 || opcion2>6) {
                     System.out.println("La opción introducida es "
                             + "incorrecta. Por favor, vuelva a introducir "
                             + "una opción.");
                 }
                 
-                /*Leer cantidad1*/
-                System.out.println("Introduzca la cantidad que quiere "
-                        + "transformar: ");
-                double cantidad1=read.nextDouble();
-                
-                Longitudes longitud=new Longitudes(cantidad1);
+                Longitudes longitud=new Longitudes(1);;
+                if (opcion2>=1 && opcion2<=4) {
+                    /*Leer cantidad1*/
+                    System.out.println("Introduzca la cantidad que quiere "
+                            + "transformar: ");
+                    double cantidad1=read.nextDouble();
+
+                    longitud.setCantidad1(cantidad1);
+                }
                 
                 /*Ejecutar primeras opciones*/
-                switch (unidad1) {
-                case "1":
+                switch (opcion2) {
+                case 1:
                     unidad1="km";
                     unidad2="M";
                     longitud.kmaMillas();
                     break;
-                case "2":
+                case 2:
                     unidad1="M";
                     unidad2="km";
                     longitud.millasaKm();
                     break;
-                case "3":
+                case 3:
                     unidad1="M";
                     unidad2="P";
                     longitud.millasaPulgadas();
                     break;
-                case "4":
+                case 4:
                     unidad1="P";
                     unidad2="M";
                     longitud.pulgadasaMillas();
                     break;
-                case "5":
+                case 5:
                     otrosLongitudes(longitud);
                     break;
-                case "6":
+                case 6:
                     break;
-            }
-            /*Mostrar la solución*/
-            System.out.println("El cambio de la unidad 1, "+unidad1+", a "
-                +"la unidad2, "+unidad2+", de "+cantidad1+" es de "
-                +longitud.getCantidad2());
-            System.out.println(cantidad1+" "+unidad1+" = "
-                    +longitud.getCantidad2()+" "+unidad2);
-            
-            
+                }
+                
+                /*Mostrar la solución*/
+                System.out.println("El cambio de la unidad 1, "+unidad1+", a "
+                        +"la unidad2, "+unidad2+", de "+longitud.getCantidad1()
+                        +" es de "+longitud.getCantidad2());
+                System.out.println(longitud.getCantidad1()+" "+unidad1+" = "
+                        +longitud.getCantidad2()+" "+unidad2);
+            } while(opcion2==6);
         }
     }
-    
-}
     
     public static void otrosLongitudes(Longitudes longitud) {
         String opcionString;
@@ -175,189 +171,191 @@ public class ConversorUnidades {
             } while(opcion==false);
         }
         
-                /*Leemos la cantidad1*/
-                double cantidad1=read.nextDouble();
-                
-                /*Ya tenemos las variables unidad1, unidad2 y cantidad1
-                Ahora averiguamos la variable cantidad2 llamando a la clase 
-                Longitudes*/
-                switch (unidad1) {
-                case "1":
-                    longitud.kmam();
-                    break;
-                case "km":
-                    longitud.kmam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "hm":
-                    longitud.hmam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "dam":
-                    longitud.damam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "m":
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "dm":
-                    longitud.dmam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "cm":
-                    longitud.cmam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                case "mm":
-                    longitud.mmam();
-                    switch (unidad2) {
-                    case "km":
-                        longitud.makm();
-                        break;
-                    case "hm":
-                        longitud.mahm();
-                        break;
-                    case "dam":
-                        longitud.madam();
-                        break;
-                    case "m":
-                        break;
-                    case "dm":
-                        longitud.madm();
-                        break;
-                    case "cm":
-                        longitud.macm();
-                        break;
-                    case "mm":
-                        longitud.mamm();
-                        break;
-                    }
-                    break;
-                }
+        /*Leemos la cantidad1*/
+        double cantidad1=read.nextDouble();
+        longitud.setCantidad1(cantidad1);
+
+        /*Ya tenemos las variables unidad1, unidad2 y cantidad1
+        Ahora averiguamos la variable cantidad2 llamando a la clase 
+        Longitudes*/
+        switch (unidad1) {
+        case "1":
+            longitud.kmam();
+            break;
+        case "km":
+            longitud.kmam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "hm":
+            longitud.hmam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "dam":
+            longitud.damam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "m":
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "dm":
+            longitud.dmam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "cm":
+            longitud.cmam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        case "mm":
+            longitud.mmam();
+            switch (unidad2) {
+            case "km":
+                longitud.makm();
+                break;
+            case "hm":
+                longitud.mahm();
+                break;
+            case "dam":
+                longitud.madam();
+                break;
+            case "m":
+                break;
+            case "dm":
+                longitud.madm();
+                break;
+            case "cm":
+                longitud.macm();
+                break;
+            case "mm":
+                longitud.mamm();
+                break;
+            }
+            break;
+        }
     }
+}

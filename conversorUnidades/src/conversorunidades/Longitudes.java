@@ -88,5 +88,11 @@ public class Longitudes {
     public double getCantidad2() {
         return cantidad2;
     }
+    
+    //SETS()
+    public void setCantidad1(double cantidad1) {
+        this.cantidad1 = cantidad1;
+    }
+    
 
 }
