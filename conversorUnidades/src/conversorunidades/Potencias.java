@@ -33,6 +33,12 @@ public class Potencias {
     public double getCantidad2(){
         return this.cantidad2;
     }
+    public void setCantidad1(double c){
+        this.cantidad1=c;
+    }
+    public double getCantidad1(){
+        return this.cantidad1;
+    }
            
 
 
