@@ -1,132 +1,200 @@
 package conversorunidades;
 
+/*
+    @author Brian Fernández Blanco
+    @author Izan Vázquez
+    @author Cesáreo González Rodríguez
+*/
+
 import java.util.Scanner;
 
 public class ConversorUnidades {
-    static Scanner read=new Scanner(System.in);
+
+    static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
-        
+
         /*Interfaz Principal*/
-        
-        
-        System.out.println("Conversor de Unidades");
-        System.out.println("Introduzca la opción que quiera utilazar: ");
-        System.out.println("    1. Conversor Unidades Longitudinales");
-        System.out.println("    2. Salir");
         int opcion1;
         do{
-            opcion1=read.nextInt();
-            if (opcion1<1 || opcion1>2) {
-                System.out.println("La opción introducida es incorrecta. Por "
-                        + "favor, vuelva a introducir una opción.");
-            }
-        } while(opcion1<1 || opcion1>2);
-        
-        
-        /*Interfaz Lonxitude*/
-        
-        
-        if (opcion1==1) {
-            System.out.println("Opción 1. Conversor Unidades Longitudinales");
-            
-            /*Recorremos el bucle 2 veces para obtener la unidad que tenemos, 
-            a la unidad que queremos*/
-            int opcion2=1;
-            do{
-                System.out.println("Introduzca la opción que quiera "
-                        + "utilizar: ");
-                
-                /*Declarar variables*/
-                String unidad1="m";
-                String unidad2="m";
-                
-                /*Mostrar primeras opciones*/
-                System.out.println("    Opciones: ");
-                System.out.println("        - 1 Kilómetros a Millas");
-                System.out.println("        - 2 Millas a Kilómetros");
-                System.out.println("        - 3 Millas a Pulgadas");
-                System.out.println("        - 4 Pulgadas a Millas");
-                System.out.println("        - 5 Otros");
-                System.out.println("        - 6 Salir");
-                
-                /*Leer primeras opciones*/
-                opcion2=read.nextInt();
-                while(opcion2<1 || opcion2>6) {
-                    System.out.println("La opción introducida es "
-                            + "incorrecta. Por favor, vuelva a introducir "
-                            + "una opción.");
+            System.out.println("Conversor de Unidades");
+            System.out.println("Introduzca la opción que quiera utilazar: ");
+            System.out.println("    1. Conversor Unidades Longitudinales");
+            System.out.println("    2. Conversor Unidades de Potencia");
+            System.out.println("    3. Conversor Unidades de Temperatura");
+            System.out.println("    4. Salir");
+            do {
+                opcion1 = read.nextInt();
+                if (opcion1 < 1 || opcion1 > 4) {
+                    System.out.println("La opción introducida es incorrecta. Por "
+                            + "favor, vuelva a introducir una opción.");
                 }
-                
-                Longitudes longitud=new Longitudes(1);;
-                if (opcion2>=1 && opcion2<=4) {
-                    /*Leer cantidad1*/
-                    System.out.println("Introduzca la cantidad que quiere "
-                            + "transformar: ");
-                    double cantidad1=read.nextDouble();
+            } while (opcion1 < 1 || opcion1 > 4);
 
-                    longitud.setCantidad1(cantidad1);
-                }
-                
-                /*Ejecutar primeras opciones*/
-                switch (opcion2) {
-                case 1:
-                    unidad1="km";
-                    unidad2="M";
-                    longitud.kmaMillas();
-                    break;
-                case 2:
-                    unidad1="M";
-                    unidad2="km";
-                    longitud.millasaKm();
-                    break;
-                case 3:
-                    unidad1="M";
-                    unidad2="P";
-                    longitud.millasaPulgadas();
-                    break;
-                case 4:
-                    unidad1="P";
-                    unidad2="M";
-                    longitud.pulgadasaMillas();
-                    break;
-                case 5:
-                    System.out.println("Otros");
-                    String unidades=otrosLongitudes(longitud);
-                    boolean space=false;
-                    unidad1="";
-                    unidad2="";
-                    for (int i = 0; i < unidades.length(); i++) {
-                        if (unidades.charAt(i)==' ') {
-                            space=true;
-                        }
-                        if (space==false) {
-                            unidad1+=unidades.charAt(i);
-                        } else{
-                            unidad2+=unidades.charAt(i);
-                        }
+            /*Interfaz Lonxitude*/
+            if (opcion1 == 1) {
+                System.out.println("Opción 1. Conversor Unidades Longitudinales");
+
+                /*Recorremos el bucle 2 veces para obtener la unidad que tenemos, 
+                a la unidad que queremos*/
+                int opcion2 = 1;
+                do {
+                    System.out.println("Introduzca las unidades que quiera "
+                            + "utilizar: ");
+
+                    /*Declarar variables*/
+                    String unidad1 = "m";
+                    String unidad2 = "m";
+
+                    /*Mostrar primeras opciones*/
+                    System.out.println("    Opciones: ");
+                    System.out.println("        - 1 Kilómetros a Millas");
+                    System.out.println("        - 2 Millas a Kilómetros");
+                    System.out.println("        - 3 Millas a Pulgadas");
+                    System.out.println("        - 4 Pulgadas a Millas");
+                    System.out.println("        - 5 Otros");
+                    System.out.println("        - 6 Volver al Menú Principal");
+
+                    /*Leer primeras opciones*/
+                    opcion2 = read.nextInt();
+                    while (opcion2 < 1 || opcion2 > 6) {
+                        System.out.println("La opción introducida es "
+                                + "incorrecta. Por favor, vuelva a introducir "
+                                + "una opción.");
                     }
-                    unidad2=unidad2.trim();
-                    break;
-                case 6:
-                    System.out.println("Salir");
-                    break;
-                }
-                
-                if (opcion2!=6) {
+
+                    Longitudes longitud = new Longitudes(1);;
+                    if (opcion2 >= 1 && opcion2 <= 4) {
+                        /*Leer cantidad1*/
+                        System.out.println("Introduzca la cantidad que quiere "
+                                + "transformar: ");
+                        double cantidad1 = read.nextDouble();
+
+                        longitud.setCantidad1(cantidad1);
+                    }
+
+                    /*Ejecutar primeras opciones*/
+                    switch (opcion2) {
+                    case 1:
+                        unidad1="km";
+                        unidad2="M";
+                        longitud.kmaMillas();
+                        break;
+                    case 2:
+                        unidad1="M";
+                        unidad2="km";
+                        longitud.millasaKm();
+                        break;
+                    case 3:
+                        unidad1="M";
+                        unidad2="P";
+                        longitud.millasaPulgadas();
+                        break;
+                    case 4:
+                        unidad1="P";
+                        unidad2="M";
+                        longitud.pulgadasaMillas();
+                        break;
+                    case 5:
+                        System.out.println("Otros");
+                        String unidades=otrosLongitudes(longitud);
+                        boolean space=false;
+                        unidad1="";
+                        unidad2="";
+                        for (int i = 0; i < unidades.length(); i++) {
+                            if (unidades.charAt(i)==' ') {
+                                space=true;
+                            }
+                            if (space==false) {
+                                unidad1+=unidades.charAt(i);
+                            } else{
+                                unidad2+=unidades.charAt(i);
+                            }
+                        }
+                        unidad2=unidad2.trim();
+                        break;
+                    case 6:
+                        System.out.println("Volver al Menú Principal");
+                        break;
+                    }
+
                     /*Mostrar la solución*/
-                    System.out.println("El cambio de la unidad 1, "+unidad1+", "
-                            + "a la unidad 2, "+unidad2+", de "
-                            +longitud.getCantidad1()
-                            +" es de "+longitud.getCantidad2());
-                    System.out.println(longitud.getCantidad1()+" "+unidad1+" = "
-                            +longitud.getCantidad2()+" "+unidad2);
-                }
-            } while(opcion2!=6);
-        }
+                    if (opcion2!=6) {
+                        resultado(unidad1,unidad2,longitud.getCantidad1(),
+                            longitud.getCantidad2());
+                    }
+                } while (opcion2 != 6);
+
+            //Interfaz Potencias
+            } else if (opcion1 == 2) {
+                int opcion2 = 0;
+                do {
+
+                    //llamamos a la clase de tipo Potencias y creamos un objeto apartir 
+                    //del cual haremos las funcioens de conversion
+                    Potencias potencias = new Potencias(1);
+                    //VARIABLES UNIDADES
+                    String unidad1 = "";
+                    String unidad2 = "";
+                    /*Mostrar opciones*/
+                    System.out.println("    Unidades: ");
+                    System.out.println("        - 1 KW a CV");
+                    System.out.println("        - 2 CV a KW");
+                    System.out.println("        - 3 KW a FtLb");
+                    System.out.println("        - 4 FtLb a KW");
+                    System.out.println("        - 5 Salir");
+
+                    opcion2 = read.nextInt();
+
+                    while (opcion2 < 1 || opcion2 > 5) {
+                        System.out.println("\"La opción introducida es incorrecta. Por \"\n"
+                                + "                        + \"favor, vuelva a introducir una opción.\"");
+                        opcion2 = read.nextInt();
+                    }
+
+                     if (opcion2 >= 1 && opcion2 <= 4) {
+                        /*Leemos un valor double que se los asignaremos a nuestra cantidad1*/
+                        System.out.println("Introduzca la cantidad que quiere "
+                                + "transformar: ");
+                        double cantidad1 = read.nextDouble();
+
+                        potencias.setCantidad1(cantidad1);
+                    }
+
+                     switch(opcion2){
+
+                         case 1:
+                             unidad1="KW";
+                             unidad2="CV";
+                             potencias.KWaCV();
+                             break;
+                         case 2: 
+                             unidad1="CV";
+                             unidad2="KW";
+                             potencias.CVaKW();
+                             break;
+                         case 3: 
+                             unidad1="KW";
+                             unidad2="FtLb";
+                             potencias.KWaFtLb();
+                             break;
+                         case 4:
+                             unidad1="FtLb";
+                             unidad2="KW";
+                             potencias.FtLbaKW();
+                             break;
+                         case 5: break;    
+
+
+
+                         }
+                         //LLamamos al método que visualiza los resultados
+                         resultado(unidad1,unidad2,potencias.getCantidad1(),potencias.getCantidad2());
+                } while(opcion2!=6);
+            }
+        } while(opcion1!=4);
     }
-    
+
     public static String otrosLongitudes(Longitudes longitud) {
         String opcionString;
         String unidad1="m";
@@ -146,7 +214,7 @@ public class ConversorUnidades {
             if (i==1) {
                 System.out.println("Unidad 2:");
             }
-            
+
             /*Escogemos las unidades*/
             do{
                 System.out.println("    Unidades: ");
@@ -190,7 +258,7 @@ public class ConversorUnidades {
                 }
             } while(opcion==false);
         }
-        
+
         /*Leemos la cantidad1*/
         System.out.println("Introduzca la cantidad que quiera cambiar: ");
         double cantidad1=read.nextDouble();
@@ -375,7 +443,19 @@ public class ConversorUnidades {
             }
             break;
         }
-        
+
         return unidad1+" "+unidad2;
     }
+
+    //metodo que visualice los resultados
+    public static void resultado(String u1, String u2, double c1, double c2){
+
+        System.out.println("El cambio de la unidad 1, " + u1 + ", a "
+                        + "la unidad2, " + u2 + ", de " + c1
+                        + " es de " + c2);
+                System.out.println(c1 + " " + u1 + " = "
+                        + c2 + " " + u2);
+    }
+    
+    
 }
