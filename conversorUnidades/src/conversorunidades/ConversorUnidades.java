@@ -93,7 +93,21 @@ public class ConversorUnidades {
                     break;
                 case 5:
                     System.out.println("Otros");
-                    otrosLongitudes(longitud);
+                    String unidades=otrosLongitudes(longitud);
+                    boolean space=false;
+                    unidad1="";
+                    unidad2="";
+                    for (int i = 0; i < unidades.length(); i++) {
+                        if (unidades.charAt(i)==' ') {
+                            space=true;
+                        }
+                        if (space==false) {
+                            unidad1+=unidades.charAt(i);
+                        } else{
+                            unidad2+=unidades.charAt(i);
+                        }
+                    }
+                    unidad2=unidad2.trim();
                     break;
                 case 6:
                     System.out.println("Salir");
@@ -102,8 +116,9 @@ public class ConversorUnidades {
                 
                 if (opcion2!=6) {
                     /*Mostrar la solución*/
-                    System.out.println("El cambio de la unidad 1, "+unidad1+", a "
-                            +"la unidad2, "+unidad2+", de "+longitud.getCantidad1()
+                    System.out.println("El cambio de la unidad 1, "+unidad1+", "
+                            + "a la unidad 2, "+unidad2+", de "
+                            +longitud.getCantidad1()
                             +" es de "+longitud.getCantidad2());
                     System.out.println(longitud.getCantidad1()+" "+unidad1+" = "
                             +longitud.getCantidad2()+" "+unidad2);
@@ -112,7 +127,7 @@ public class ConversorUnidades {
         }
     }
     
-    public static void otrosLongitudes(Longitudes longitud) {
+    public static String otrosLongitudes(Longitudes longitud) {
         String opcionString;
         String unidad1="m";
         String unidad2="m";
@@ -120,9 +135,10 @@ public class ConversorUnidades {
         /*Texto inicial*/
         System.out.println("Introduzca las unidades que quiera "
                 + "utilizar: ");
+        /*Lectura falsa*/
+        read.nextLine();
         /*Repetimos el prceso de escoger la unidad 2 veces puesto que tenemos 
         2 unidades que escoger*/
-        read.nextLine();
         for (int i = 0; i < 2; i++) {
             if (i==0) {
                 System.out.println("Unidad 1:");
@@ -150,13 +166,13 @@ public class ConversorUnidades {
                 opcionString=opcionString.replace(" ","");
 
                 /*Si la opcion no es correcta repetimos*/
-                if (!opcionString.equals("km") || 
+                if (!(opcionString.equals("km") || 
                         opcionString.equals("hm") || 
                         opcionString.equals("dam") || 
                         opcionString.equals("m") || 
                         opcionString.equals("dm") || 
                         opcionString.equals("cm") || 
-                        opcionString.equals("mm")) {
+                        opcionString.equals("mm"))) {
                     opcion=false;
                     System.out.println("La unidad introducida es "
                             + "incorrecta. Por favor, vuelva a introducir "
@@ -176,6 +192,7 @@ public class ConversorUnidades {
         }
         
         /*Leemos la cantidad1*/
+        System.out.println("Introduzca la cantidad que quiera cambiar: ");
         double cantidad1=read.nextDouble();
         longitud.setCantidad1(cantidad1);
 
@@ -358,5 +375,7 @@ public class ConversorUnidades {
             }
             break;
         }
+        
+        return unidad1+" "+unidad2;
     }
 }
