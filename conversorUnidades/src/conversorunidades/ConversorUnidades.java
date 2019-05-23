@@ -152,7 +152,7 @@ public class ConversorUnidades {
                         opcion2 = read.nextInt();
                     }
 
-                     if (opcion2 >= 1 && opcion2 <= 4) {
+                    if (opcion2 >= 1 && opcion2 <= 4) {
                         /*Leemos un valor double que se los asignaremos a nuestra cantidad1*/
                         System.out.println("Introduzca la cantidad que quiere "
                                 + "transformar: ");
@@ -161,40 +161,105 @@ public class ConversorUnidades {
                         potencias.setCantidad1(cantidad1);
                     }
 
-                     switch(opcion2){
-
-                         case 1:
-                             unidad1="KW";
-                             unidad2="CV";
-                             potencias.KWaCV();
-                             break;
-                         case 2: 
-                             unidad1="CV";
-                             unidad2="KW";
-                             potencias.CVaKW();
-                             break;
-                         case 3: 
-                             unidad1="KW";
-                             unidad2="FtLb";
-                             potencias.KWaFtLb();
-                             break;
-                         case 4:
-                             unidad1="FtLb";
-                             unidad2="KW";
-                             potencias.FtLbaKW();
-                             break;
-                         case 5: break;    
-
-
-
-                         }
-                         //LLamamos al método que visualiza los resultados
-                         resultado(unidad1,unidad2,potencias.getCantidad1(),potencias.getCantidad2());
+                    switch(opcion2){
+                    case 1:
+                        unidad1="KW";
+                        unidad2="CV";
+                        potencias.KWaCV();
+                        break;
+                    case 2: 
+                        unidad1="CV";
+                        unidad2="KW";
+                        potencias.CVaKW();
+                        break;
+                    case 3: 
+                        unidad1="KW";
+                        unidad2="FtLb";
+                        potencias.KWaFtLb();
+                        break;
+                    case 4:
+                        unidad1="FtLb";
+                        unidad2="KW";
+                        potencias.FtLbaKW();
+                        break;
+                    case 5: break;    
+                    }
+                    //LLamamos al método que visualiza los resultados
+                    resultado(unidad1,unidad2,potencias.getCantidad1(),
+                            potencias.getCantidad2());
                 } while(opcion2!=6);
+                
+            } else if (opcion1==3) {
+                int opcion2 = 0;
+                do {
+
+                    //llamamos a la clase de tipo Potencias y creamos un objeto apartir 
+                    //del cual haremos las funcioens de conversion
+                    Temperaturas temperaturas = new Temperaturas(1);
+                    //VARIABLES UNIDADES
+                    String unidad1 = "";
+                    String unidad2 = "";
+                    /*Mostrar opciones*/
+                    System.out.println("    Unidades: ");
+                    System.out.println("        - 1 Celsius(Cº) a Fahrenheit(Fº)");
+                    System.out.println("        - 2 Fahrenheit a Celsius");
+                    System.out.println("        - 3 Celsius a Kelvin (K)");
+                    System.out.println("        - 4 Kelvin a Celsius");
+                    System.out.println("        - 5 Volver al Menú Principal");
+
+                    opcion2 = read.nextInt();
+
+                    while (opcion2 < 1 || opcion2 > 5) {
+                        System.out.println("\"La opción introducida es incorrecta. Por \"\n"
+                                + "                        + \"favor, vuelva a introducir una opción.\"");
+                        opcion2 = read.nextInt();
+                    }
+
+                    if (opcion2 >= 1 && opcion2 <= 4) {
+                       /*Leemos un valor double que se los asignaremos a nuestra cantidad1*/
+                       System.out.println("Introduzca la cantidad que quiere "
+                               + "transformar: ");
+                       double cantidad1 = read.nextDouble();
+
+                       temperaturas.setT1(cantidad1);
+                    }
+
+                    switch(opcion2){
+
+                        case 1:
+                            unidad1="Cº";
+                            unidad2="Fº";
+                            temperaturas.celsiusaFahrenheit();
+                            break;
+                        case 2: 
+                            unidad1="Fº";
+                            unidad2="Cº";
+                            temperaturas.fahrenheitaCelsius();
+                            break;
+                        case 3: 
+                            unidad1="Cº";
+                            unidad2="K";
+                            temperaturas.celsiusaKelvin();
+                            break;
+                        case 4:
+                            unidad1="K";
+                            unidad2="Cº";
+                            temperaturas.kelvinaCelsius();
+                            break;
+                        case 5:
+                            break;    
+
+
+
+                        }
+                        //LLamamos al método que visualiza los resultados
+                        resultado(unidad1,unidad2,temperaturas.getT1(),
+                                temperaturas.getT2());
+                }while(opcion2!=5);
             }
         } while(opcion1!=4);
     }
-
+    
     public static String otrosLongitudes(Longitudes longitud) {
         String opcionString;
         String unidad1="m";
