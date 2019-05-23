@@ -35,4 +35,10 @@ public class Temperaturas {
     public double getT2(){
         return this.t2;
     }
+    public double getT1(){
+        return this.t1;
+    }
+    public void setT1(double t){
+        this.t1=t;
+    }
 }
