@@ -17,18 +17,44 @@ public class Potencias {
     public Potencias(double c){
         this.cantidad1=c;
     }
-    public void KWaCV(){
-        this.cantidad2=this.cantidad1*1.34102;
+    public void VatioaVatios(){
+        this.cantidad2=this.cantidad1;
     }
-    public void CVaKW(){
-         this.cantidad2=this.cantidad1/1.34102;
+    public void KWaVatios(){
+         this.cantidad2=this.cantidad1*1000;
     }
-    public void KWaFtLb(){
+    public void CVaVatios(){
         this.cantidad2=this.cantidad1*737.562149;
     }
-    public void FtLbaKW(){
+    public void CFaVatios(){
+        this.cantidad2=this.cantidad1*745.7;
+    }
+    public void MWaVatios(){
+        this.cantidad2=this.cantidad1*1000000;
+    }
+    public void PeLibraaVatios(){
+        this.cantidad2=this.cantidad1*1.36;
+    }
+    
+      public void VatiosaVatios(){
+        this.cantidad2=this.cantidad1;
+    }
+    public void VatiosaKW(){
+         this.cantidad2=this.cantidad1/1000;
+    }
+    public void VatiosaCV(){
         this.cantidad2=this.cantidad1/737.562149;
     }
+    public void VatiosaCF(){
+        this.cantidad2=this.cantidad1/745.7;
+    }
+    public void VatiosaMW(){
+        this.cantidad2=this.cantidad1/1000000;
+    }
+    public void VatiosaPeLibra(){
+        this.cantidad2=this.cantidad1/1.36;
+    }
+    
     
     public double getCantidad2(){
         return this.cantidad2;

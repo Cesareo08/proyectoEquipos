@@ -119,21 +119,22 @@ public class ConversorUnidades {
                 String unidad2 = "";
                 /*Mostrar opciones*/
                 System.out.println("    Unidades: ");
-                System.out.println("        - 1 KW a CV");
-                System.out.println("        - 2 CV a KW");
-                System.out.println("        - 3 KW a FtLb");
-                System.out.println("        - 4 FtLb a KW");
-                System.out.println("        - 5 Salir");
-
+                System.out.println("        - 1 Vatio");
+                System.out.println("        - 2 KW");
+                System.out.println("        - 3 CV");
+                System.out.println("        - 4 CF");
+                System.out.println("        - 5 MV");
+                System.out.println("        - 6 Pé/Libra");
+                System.out.println("        - 7 salir");
                 opcion2 = read.nextInt();
 
-                while (opcion2 < 1 || opcion2 > 5) {
+                while (opcion2 < 1 || opcion2 > 7) {
                     System.out.println("\"La opción introducida es incorrecta. Por \"\n"
                             + "                        + \"favor, vuelva a introducir una opción.\"");
                     opcion2 = read.nextInt();
                 }
                 
-                 if (opcion2 >= 1 && opcion2 <= 4) {
+                 if (opcion2 >= 1 && opcion2 <= 6) {
                     /*Leemos un valor double que se los asignaremos a nuestra cantidad1*/
                     System.out.println("Introduzca la cantidad que quiere "
                             + "transformar: ");
@@ -141,30 +142,63 @@ public class ConversorUnidades {
                     
                     potencias.setCantidad1(cantidad1);
                 }
-                 
+                 double cantidadEnVatios=0;
                  switch(opcion2){
+                     case 1: potencias.VatioaVatios();
+                         break;
+                     case 2: potencias.KWaVatios();
+                         break;
+                    
+                     case 3:    potencias.CVaVatios();
+                         break;
+                     case 4:    potencias.CFaVatios();
+                         break;
+                     case 5:    potencias.MWaVatios();
+                         break;
+                     case 6:    potencias.PeLibraaVatios();
+                         break;
+                     case 7:
+                         break;
+                   
+                 }
+                 
+                 System.out.println("    Convertir a: ");
+                System.out.println("        - 1 Vatio");
+                System.out.println("        - 2 KW");
+                System.out.println("        - 3 CV");
+                System.out.println("        - 4 CF");
+                System.out.println("        - 5 MV");
+                System.out.println("        - 6 Pé/Libra");
+                System.out.println("        - 7 salir");
+                int opcionAconvertir=0;
+                opcionAconvertir = read.nextInt();
+                 while(opcionAconvertir<1 || opcionAconvertir>7){
+                     System.out.println("La opción introducida es "
+                            + "incorrecta. Por favor, vuelva a introducir "
+                            + "una opción.");
+
+                 }
+                 switch(opcionAconvertir){
                      
                      case 1:
-                         unidad1="KW";
-                         unidad2="CV";
-                         potencias.KWaCV();
+                         //conversion a vatios
                          break;
                      case 2: 
-                         unidad1="CV";
-                         unidad2="KW";
-                         potencias.CVaKW();
+                        //conversion a kw
                          break;
                      case 3: 
-                         unidad1="KW";
-                         unidad2="FtLb";
-                         potencias.KWaFtLb();
+                         //conversion a CV
                          break;
                      case 4:
-                         unidad1="FtLb";
-                         unidad2="KW";
-                         potencias.FtLbaKW();
+                         //conversion a CF
                          break;
-                     case 5: break;    
+                    case 5:
+                         //conversion a MW
+                         break;
+                    case 6:
+                         //conversion a Pe/Libra
+                         break;
+                     case 7: break;    
                          
                          
                         
@@ -172,7 +206,7 @@ public class ConversorUnidades {
                      //LLamamos al método que visualiza los resultados
                      resultado(unidad1,unidad2,potencias.getCantidad1(),potencias.getCantidad2());
           
-            } while (opcion2 == 5);
+            } while (opcion2 != 7);
 
         }else if (opcion1==3) {
             int opcion2 = 0;
