@@ -5,7 +5,8 @@ public class Longitudes {
     private double cantidad1;//cantidad que recibimos
     private double cantidad2;//cantidad convertida
 
-
+    public Longitudes() {
+    }
     public Longitudes(double cantidad) {
             this.cantidad1 = cantidad;
     }
