@@ -187,7 +187,7 @@ public class ConversorUnidades {
                     //LLamamos al método que visualiza los resultados
                     resultado(unidad1,unidad2,potencias.getCantidad1(),
                             potencias.getCantidad2());
-                } while(opcion2!=6);
+                } while(opcion2!=5);
                 
             } else if (opcion1==3) {
                 int opcion2 = 0;
